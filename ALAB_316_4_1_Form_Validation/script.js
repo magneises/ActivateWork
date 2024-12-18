@@ -17,6 +17,7 @@ const specialCharacterRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 const whitespaceRegex = /\s/;
 
 
+
 function validateUsername(username) { 
     if (username === "") { // The username cannot be blank
         alert("Please include username.")
@@ -35,6 +36,7 @@ function validateUsername(username) {
     if (specialCharacterRegex.test(username) || whitespaceRegex.test(username)) {
         return "Username cannot contain special characters or whitespace."
     }
+
     return null;
 }
 
@@ -50,6 +52,8 @@ registrationForm.addEventListener("submit", function(event) {
         registrationForm.submit();
     }
 });
+
+
 
 
 
