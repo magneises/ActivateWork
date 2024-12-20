@@ -86,6 +86,10 @@ a { color: hsl(228, 45%, 44%); }
 
 } */
 
+#repayment {
+  background-color: orange;
+}
+
 #btn-calculate-payments {
   background-color: limegreen;
   border: none;
@@ -101,6 +105,10 @@ a { color: hsl(228, 45%, 44%); }
   height: 2.8rem
 }
 
+#btn-calculate-payments:hover {
+  cursor: pointer;
+}
+
 #btn-calculate-payments img {
   padding-right: .5rem;
 }
@@ -109,7 +117,7 @@ a { color: hsl(228, 45%, 44%); }
   background-color: transparent;
   border: none;
   cursor: pointer;
-  
+
 }
 
 
