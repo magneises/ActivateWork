@@ -6,7 +6,8 @@ const repaymentInput = document.querySelector('#repayment');
 const interestOnlyInput = document.querySelector('#interest-only');
 const clearAllClick = document.querySelector('#clear-all');
 const calculatePaymentsClick = document.querySelector('#btn-calculate-payments');
-const calcImg = document.querySelector('.calc-image'); // Adjust selector as needed
+const calcImg = document.querySelector('.calc-image');
+
 
 // Event Listeners
 mortgageAmountInput.addEventListener('input', () => {
@@ -56,12 +57,14 @@ function repaymentAmountFunction() {
         console.log(`Repayment Amount: ${repaymentAmount}`);
         removeCalcImg();
         yourResultsTextUpdate();
+        displayResultsBox();
         return repaymentAmount;
     } else {
         const repaymentAmount = mortgageTypeInterestOnlyAmount();
         console.log(`Interest-only Repayment Amount: ${repaymentAmount}`);
         removeCalcImg();
         yourResultsTextUpdate();
+        displayResultsBox();
         return repaymentAmount;
     }
 }
@@ -73,6 +76,7 @@ function clearAllFunction() {
     interestRateInput.value = '';
     repaymentInput.checked = false;
     interestOnlyInput.checked = false;
+    addCalcImg();
     // console.log('All inputs cleared!');
 }
 
@@ -84,13 +88,28 @@ function removeCalcImg() {
     }
 }
 
+// function addCalcImg() {
+//     if (calcImg !== '') {
+//         calcImg.add();
+//         console.log('Calculator image added!');
+//     }
+// }
+
 function yourResultsTextUpdate() {
     const yourResultsText = document.querySelector('.mortgage-results-inner-section-paragraph-text');
     const yourResultsTextHeadline = document.querySelector('.mortgage-results-inner-section-header-text');
     yourResultsText.textContent = 'Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.';
-    yourResultsTextHeadline.textContent = 'Your results'
+    yourResultsTextHeadline.textContent = 'Your results';
 };
 
-// function displayResultsBox() {
-//     const 
-// }
+
+
+
+function displayResultsBox() {
+    resultsBox.style.height = "100px";
+    resultsBox.style.width = "100px";
+    resultsBox.style.backgroundColor = "yellow";
+    resultsBox.classList.add('.results-box-container');
+}
+
+
