@@ -38,7 +38,7 @@ calculatePaymentsClick.addEventListener('click', () => {
 });
 
 clearAllClick.addEventListener('click', () => {
-    console.log(clearAllFunction());
+    return clearAllFunction();
 })
 
 
@@ -74,18 +74,14 @@ function repaymentAmountFunction() {
     }
 }
 
-function clearAllFunctionO() {
-    
+function clearAllFunction() {
+    mortgageAmountInput.value = '';
+    mortgageTermInput.value = '';
+    interestRateInput.value = '';
+    repaymentInput.checked = false;
+    interestOnlyInput.checked = false;
 }
 
-
-
-
-
-
-// use an if function to decide to whether to use the repyament calc or the interest only calc.
-// if (mortgageType ==== 'repayment') {
-// }
 
 
 
