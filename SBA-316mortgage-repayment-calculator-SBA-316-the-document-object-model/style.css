@@ -86,9 +86,23 @@ a { color: hsl(228, 45%, 44%); }
 
 } */
 
-.btn-calculate-payments {
-    background-color: limegreen;
+#btn-calculate-payments {
+  background-color: limegreen;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 15rem;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 65%;
+  font-weight: bold;
+  font-size: .90rem;
+  height: 2.8rem
+}
 
+#btn-calculate-payments img {
+  padding-right: .5rem;
 }
 
 
