@@ -6,7 +6,6 @@ const repaymentInput = document.querySelector('#repayment');
 const interestOnlyInput = document.querySelector('#interest-only');
 const clearAllClick = document.querySelector('#clear-all');
 const calculatePaymentsClick = document.querySelector('#btn-calculate-payments');
-const mortgageType = repaymentInput || interestOnlyInput;
 
 
 // Event Listeners
@@ -38,6 +37,9 @@ calculatePaymentsClick.addEventListener('click', () => {
     console.log(repaymentAmountFunction());
 });
 
+clearAllClick.addEventListener('click', () => {
+    console.log(clearAllFunction());
+})
 
 
 // Repayment Mortgage Type Calculation
@@ -59,14 +61,26 @@ const mortgageTypeInterestOnlyAmount = () => {
 }
 
 function repaymentAmountFunction() {
-    if (mortgageType === 'repaymnet') {
+    const mortgageType = repaymentInput.checked ? 'repayment' : 'interest-only';
+
+    if (mortgageType === 'repayment') {
         const repaymentAmount = mortgageTypeRepaymentAmount();
         console.log(`Repayment Amount: ${repaymentAmount}`)
+        return repaymentAmount;
     } else { //can use else since there's no other option
         const repaymentAmount = mortgageTypeInterestOnlyAmount();
         console.log(`Interest-only Repayment Amount: ${repaymentAmount}`)
+        return repaymentAmount;
     }
 }
+
+function clearAllFunctionO() {
+    
+}
+
+
+
+
 
 
 // use an if function to decide to whether to use the repyament calc or the interest only calc.

@@ -105,6 +105,13 @@ a { color: hsl(228, 45%, 44%); }
   padding-right: .5rem;
 }
 
+#clear-all {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  
+}
+
 
 .mortgage-results-section {
     background-color: hsl(202, 55%, 16%);
