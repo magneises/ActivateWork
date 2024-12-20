@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    body {
+      padding: 15px;
+    }
+  }
+  
+  /* Small screens (phones) */
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .container {
+      gap: 10px;
+    }
+  }
+
+
+/* Site Code */
+body {
+    font-family: 'Plus Jakarta Sans', 'Roboto', 'sans-serif';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    background-color: skyblue;
+}
+
+a { color: hsl(228, 45%, 44%); }
+
+/* Might be able to delete this later */
+/* .container {
+    background-color: skyblue;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+} */
+
+.mortgage-calculator-container {
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 1.5rem;
+}
+
+.mortgage-title-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mortgage-calculator-section {
+    background-color: white;
+    width: 25vw;
+    height: 60vh;;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 1rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-left-radius: 1.5rem;
+}
+
+/* .term-and-rate-container {
+    display: flex;
+    flex-direction: row;
+
+} */
+
+.btn-calculate-payments {
+    background-color: limegreen;
+
+}
+
+
+.mortgage-results-section {
+    background-color: hsl(202, 55%, 16%);
+    width: 25vw;
+    padding: 1rem 1rem;
+    color: white;
+    border-top-right-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-bottom-left-radius: 5rem;
+}
+
+.attribution {
+    padding: 1rem 0rem;
+}
+
+
+
+
