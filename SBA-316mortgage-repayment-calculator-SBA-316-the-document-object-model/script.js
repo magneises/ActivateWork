@@ -57,7 +57,8 @@ function repaymentAmountFunction() {
 
     // Styles for Results Text Element
     resultsTextElement.style.color = "purple";
-    resultsTextElement.style.textTransform = "uppercase"; 
+    resultsTextElement.style.textTransform = "uppercase";
+    resultsTextElement.style.padding = "1rem 1rem";
 
 
 
