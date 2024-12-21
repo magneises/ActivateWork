@@ -59,6 +59,34 @@ body {
 
 a { color: hsl(228, 45%, 44%); }
 
+
+/* input[type="radio"] {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px;
+  background-color: white;
+  position: relative;
+  pointer-events: auto;
+} */
+
+/* input[type="radio"] {
+  background-color: white;
+  border: 1.5px solid skyblue
+} */
+
+/* input[type="radio"]:checked::before {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: white;
+} */
+
 /* Might be able to delete this later */
 /* .container {
     background-color: skyblue;
@@ -106,18 +134,67 @@ a { color: hsl(228, 45%, 44%); }
     border-bottom-left-radius: 1.5rem;
 }
 
-/* .term-and-rate-container {
+.term-and-rate-container {
     display: flex;
     flex-direction: row;
-
-} */
-
-#mortgage-amount {
-  background-color: yellow;;
-  display: flex;
-  width: 23vw;
+    justify-content: space-between;
 }
 
+.input-group {
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  width: 13vw;
+  /* background-color: yellow; */
+}
+
+label {
+  margin-bottom: .3rem;
+  display: flex;
+}
+
+#mortgage-amount {
+  /* background-color: yellow;; */
+  display: flex;
+  width: 22.5vw;
+  height: 3rem;
+  border: .1rem solid lightblue;
+  border-radius: .5rem;
+}
+
+#mortgage-term {
+  /* background-color: yellow; */
+  display: flex;
+  height: 3rem;
+  width: 11rem;
+  border: .1rem solid lightblue;
+  border-radius: .5rem;
+}
+
+#interest-rate {
+  /* background-color: yellow;; */
+  display: flex;
+  height: 3rem;
+  width: 11rem;
+  border: .1rem solid lightblue;
+  border-radius: .5rem;
+}
+
+.mortgage-type {
+  background-color: yellow;
+  width: 27rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+/* input[type="radio"] {
+  border: 1rem solid orange;
+}
+
+#repayment {
+  border: 1rem solid orange;
+} */
 
 #btn-calculate-payments {
   background-color: #d9db30;

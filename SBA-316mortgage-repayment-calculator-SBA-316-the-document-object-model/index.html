@@ -22,23 +22,30 @@
         <input type="number" id="mortgage-amount" name="mortgage-amount" min="1" max="999999999" required>
 
         <div class="term-and-rate-container">
+          <div class="input-group">
             <label for="mortgage-term">Mortgage Term</label>
-            <input type="number" id="mortgage-term" name="mortgage-term" min="1" max="999999999" required> 
-      
+            <input type="number" id="mortgage-term" name="mortgage-term" min="1" max="999999999" required>
+          </div>
+        
+          <div class="input-group">
             <label for="interest-rate">Interest Rate</label>
-            <input type="number" id="interest-rate" name="interest-rate" min="1" max="999999999" required>  
+            <input type="number" id="interest-rate" name="interest-rate" min="1" max="999999999" required>
+          </div>
         </div>
-        <label for="mortgage-type">Mortgage Type</label>
-        <div>
-          <input type="radio" id="repayment" name="mortgage-type" value="repayment" required>
-          <label for="repayment">Repayment</label>
+        
+        <div class="mortgage-type">
+          <label for="mortgage-type">Mortgage Type</label>
+          <div>
+            <input type="radio" id="repayment" name="mortgage-type" value="repayment" required>
+            <label for="repayment">Repayment</label>
+          </div>
+          <div>
+            <input type="radio" id="interest-only" name="mortgage-type" value="interest-only" required>
+            <label for="interest-only">Interest Only</label>
+          </div>
+          <button id="btn-calculate-payments"><img src="./assets/images/icon-calculator.svg">Calculate Repayments</button>
+          </div>
         </div>
-        <div>
-          <input type="radio" id="interest-only" name="mortgage-type" value="interest-only" required>
-          <label for="interest-only">Interest Only</label>
-        </div>
-        <button id="btn-calculate-payments"><img src="./assets/images/icon-calculator.svg">Calculate Repayments</button>
-      </div>
   
       <!-- Mortgage Results Section -->
       <div class="mortgage-results-section">
