@@ -7,6 +7,8 @@ const interestOnlyInput = document.querySelector('#interest-only');
 const clearAllClick = document.querySelector('#clear-all');
 const calculatePaymentsClick = document.querySelector('#btn-calculate-payments');
 const calcImg = document.querySelector('.calc-image');
+const resultsBox = document.querySelector('.results-box-container');
+
 
 
 // Event Listeners
@@ -51,23 +53,39 @@ const mortgageTypeInterestOnlyAmount = () => {
 // Repayment Decision Function
 function repaymentAmountFunction() {
     const mortgageType = repaymentInput.checked ? 'repayment' : 'interest-only';
+    const resultsTextElement = document.querySelector('.your-monthly-repayment-amount-text');
+
+    // Styles for Results Text Element
+    resultsTextElement.style.color = "purple";
+    resultsTextElement.style.textTransform = "uppercase"; 
+
+
 
     if (mortgageType === 'repayment') {
         const repaymentAmount = mortgageTypeRepaymentAmount();
-        console.log(`Repayment Amount: ${repaymentAmount}`);
+        console.log(`Repayment Amount: $${repaymentAmount}`);
         removeCalcImg();
         yourResultsTextUpdate();
         displayResultsBox();
+
+        if (resultsTextElement) {
+            resultsTextElement.textContent = `Your monthly repayment is: $${repaymentAmount}`;
+        }
         return repaymentAmount;
     } else {
         const repaymentAmount = mortgageTypeInterestOnlyAmount();
-        console.log(`Interest-only Repayment Amount: ${repaymentAmount}`);
+        console.log(`Interest-only Repayment Amount: $${repaymentAmount}`);
         removeCalcImg();
         yourResultsTextUpdate();
         displayResultsBox();
+
+        if (resultsTextElement) {
+            resultsTextElement.textContent = `Your interest-only monthly repayment is: $${repaymentAmount}`;
+        }
         return repaymentAmount;
     }
 }
+
 
 // Clear Inputs Function
 function clearAllFunction() {
@@ -98,18 +116,31 @@ function removeCalcImg() {
 function yourResultsTextUpdate() {
     const yourResultsText = document.querySelector('.mortgage-results-inner-section-paragraph-text');
     const yourResultsTextHeadline = document.querySelector('.mortgage-results-inner-section-header-text');
-    yourResultsText.textContent = 'Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.';
-    yourResultsTextHeadline.textContent = 'Your results';
-};
-
-
-
+    if (yourResultsText && yourResultsTextHeadline) {
+        yourResultsText.textContent = 'Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.';
+        yourResultsTextHeadline.textContent = 'Your results';
+    } else {
+        console.error('Results text or headline elements not found.');
+    }
+}
 
 function displayResultsBox() {
-    resultsBox.style.height = "100px";
-    resultsBox.style.width = "100px";
-    resultsBox.style.backgroundColor = "yellow";
-    resultsBox.classList.add('.results-box-container');
+    const resultsBox = document.querySelector('.results-box-container');
+    if (resultsBox) {
+
+        // Styles
+        resultsBox.style.height = "10em";
+        resultsBox.style.width = "20rem";
+        resultsBox.style.backgroundColor = "yellow";
+        resultsBox.classList.add('visible');
+        resultsBox.style.display = "flex";
+        resultsBox.style.justifyContent = "center";
+        resultsBox.style.alignItems = "center";
+
+
+    } else {
+        console.error('Results box not found.');
+    }
 }
 
 
