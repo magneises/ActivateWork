@@ -1,9 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
 /* Font Import */
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+/* <uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 200 to 800 */
+
+.plus-jakarta-sans {
+  font-family: "Plus Jakarta Sans", serif;
+  font-optical-sizing: auto;
+  font-weight:600;
+  font-style: normal;
+}
+
 
 /* Medium screens (tablets) */
 @media (max-width: 768px) {
@@ -91,7 +103,8 @@ a { color: hsl(228, 45%, 44%); }
 }
 
 #btn-calculate-payments {
-  background-color: limegreen;
+  background-color: #d9db30;
+  color: #133040;
   border: none;
   padding: 1rem 3rem;
   border-radius: 15rem;

@@ -131,12 +131,13 @@ function displayResultsBox() {
 
         // Styles
         resultsBox.style.height = "10em";
-        resultsBox.style.width = "20rem";
+        resultsBox.style.width = "15rem";
         resultsBox.style.backgroundColor = "yellow";
         resultsBox.classList.add('visible');
         resultsBox.style.display = "flex";
         resultsBox.style.justifyContent = "center";
         resultsBox.style.alignItems = "center";
+        
 
 
     } else {
