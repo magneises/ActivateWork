@@ -59,34 +59,6 @@ body {
 
 a { color: hsl(228, 45%, 44%); }
 
-
-/* input[type="radio"] {
-  appearance: none;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 3px;
-  background-color: white;
-  position: relative;
-  pointer-events: auto;
-} */
-
-/* input[type="radio"] {
-  background-color: white;
-  border: 1.5px solid skyblue
-} */
-
-/* input[type="radio"]:checked::before {
-  content: '';
-  position: absolute;
-  top: 4px;
-  left: 4px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: white;
-} */
-
 /* Might be able to delete this later */
 /* .container {
     background-color: skyblue;
@@ -188,6 +160,77 @@ label {
   justify-content: start;
 }
 
+.mortgage-type div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Completely hide the default radio button */
+.mortgage-type input[type="radio"] {
+  display: none;
+}
+
+/* Custom radio button appearance */
+.mortgage-type input[type="radio"] + label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Create a custom circle for the radio button */
+.mortgage-type input[type="radio"] + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #333;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+/* Style when radio button is checked */
+.mortgage-type input[type="radio"]:checked + label::before {
+  background-color: #fff;  /* Green color for checked */
+  border-color: #4caf50;
+}
+
+/* Add a check mark inside the circle when checked */
+.mortgage-type input[type="radio"]:checked + label::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  right: 7px;
+  left: 7px;
+  bottom: 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #4caf50;
+}
+
+/* Optional: Hover effect for labels */
+.mortgage-type input[type="radio"] + label:hover::before {
+  border-color: fff;
+}
+
+/* Add some spacing for the buttons */
+.mortgage-type div {
+  margin-bottom: 15px;
+}
+
+
 /* input[type="radio"] {
   border: 1rem solid orange;
 }
@@ -201,6 +244,7 @@ label {
   color: #133040;
   border: none;
   padding: 1rem 3rem;
+  margin-top: 1rem;
   border-radius: 15rem;
   text-align: center;
   display: flex;
@@ -245,8 +289,6 @@ label {
 /* .mortgage-results-inner-section {
   display: flex;
   flex-direction: column;
-
-
 } */
 
 .results-box-container {
