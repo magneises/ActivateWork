@@ -227,7 +227,6 @@ label {
 
 }
 
-
 .mortgage-results-section {
     background-color: hsl(202, 55%, 16%);
     width: 25vw;
@@ -238,9 +237,36 @@ label {
     border-bottom-left-radius: 5rem;
 }
 
+.calc-image {
+  height: 192;
+  width: 192;
+}
+
+/* .mortgage-results-inner-section {
+  display: flex;
+  flex-direction: column;
+
+
+} */
+
+.results-box-container {
+
+
+}
+
 .attribution {
     padding: 1rem 0rem;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

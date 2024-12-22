@@ -125,24 +125,54 @@ function yourResultsTextUpdate() {
     }
 }
 
+// function displayResultsBox() {
+//     const resultsBox = document.querySelector('.results-box-container');
+//     if (resultsBox) {
+
+//         // Styles
+//         resultsBox.style.height = "10em";
+//         resultsBox.style.width = "15rem";
+//         resultsBox.style.backgroundColor = "yellow";
+//         resultsBox.classList.add('visible');
+//         resultsBox.style.display = "flex";
+//         resultsBox.style.justifyContent = "center";
+//         resultsBox.style.alignItems = "center";
+
+//     } else {
+//         console.error('Results box not found.');
+//     }
+// }
+
+
 function displayResultsBox() {
-    const resultsBox = document.querySelector('.results-box-container');
-    if (resultsBox) {
-
-        // Styles
-        resultsBox.style.height = "10em";
-        resultsBox.style.width = "15rem";
-        resultsBox.style.backgroundColor = "yellow";
-        resultsBox.classList.add('visible');
-        resultsBox.style.display = "flex";
-        resultsBox.style.justifyContent = "center";
-        resultsBox.style.alignItems = "center";
+    // Check if the results box already exists
+    let resultsBox = document.querySelector('.results-box-container');
+    resultsBox.className = 'results-box-container';
+    
+    if (!resultsBox) {
+        // Create the element only if it doesn't already exist
+        resultsBox = document.createElement('div');
+        resultsBox.className = 'results-box-container';
         
-
-
-    } else {
-        console.error('Results box not found.');
+        // Append it to the container or body
+        // const container = document.querySelector('.results-box-container');
+        if (container) {
+            container.appendChild(resultsBox);
+        } else {
+            console.error('Specific container not found. Appending to body.');
+            document.body.appendChild(resultsBox);
+        }
     }
+
+    // Apply styles
+    resultsBox.style.height = "10em";
+    resultsBox.style.width = "15rem";
+    resultsBox.style.backgroundColor = "yellow";
+    resultsBox.classList.add('visible');
+    resultsBox.style.display = "flex";
+    resultsBox.style.justifyContent = "center";
+    resultsBox.style.alignItems = "center";
 }
+
 
 
