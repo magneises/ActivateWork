@@ -143,6 +143,7 @@ label {
   border-radius: .5rem;
 }
 
+
 #interest-rate {
   /* background-color: yellow;; */
   display: flex;
@@ -153,17 +154,55 @@ label {
 }
 
 .mortgage-type {
-  background-color: yellow;
+  /* background-color: orange; */
   width: 27rem;
   display: flex;
   flex-direction: column;
   justify-content: start;
 }
 
+.mortgage-type-radio-selection {
+  border: .1rem solid lightblue;
+  border-radius: .5rem;
+}
+
+
+.mortgage-type-radio-selection:active {
+  border: .1rem solid #eceeae;
+  border-radius: .5rem;
+  background-color: #fafae0;
+}
+
+.mortgage-type-radio-selection:checked {
+  border: .1rem solid #eceeae;
+  border-radius: .5rem;
+  background-color: #fafae0;
+}
+
+.interest-only-radio-selection {
+  border: .1rem solid lightblue;
+  border-radius: .5rem;
+  display: flex;
+  align-items: center;
+}
+
+.interest-only-radio-selection:active {
+  border: .1rem solid #eceeae;
+  border-radius: .5rem;
+  background-color: #fafae0;
+}
+
+.interest-only-radio-selection:checked {
+  border: .1rem solid #eceeae;
+  border-radius: .5rem; 
+  background-color: #fafae0;
+}
+
 .mortgage-type div {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  padding: 1rem 1rem;
 }
 
 /* Completely hide the default radio button */
@@ -220,6 +259,7 @@ label {
   background-color: #4caf50;
 }
 
+
 /* Optional: Hover effect for labels */
 .mortgage-type input[type="radio"] + label:hover::before {
   border-color: fff;
@@ -250,7 +290,7 @@ label {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 65%;
+  width: 70%;
   font-weight: bold;
   font-size: .90rem;
   height: 2.8rem
