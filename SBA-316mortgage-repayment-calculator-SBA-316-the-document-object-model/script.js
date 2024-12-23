@@ -95,7 +95,7 @@ function clearAllFunction() {
     interestRateInput.value = '';
     repaymentInput.checked = false;
     interestOnlyInput.checked = false;
-    addCalcImg();
+
     // console.log('All inputs cleared!');
 }
 
@@ -147,7 +147,6 @@ function yourResultsTextUpdate() {
 function displayResultsBox() {
     // Check if the results box already exists
     let resultsBox = document.querySelector('.results-box-container');
-    resultsBox.className = 'results-box-container';
     
     if (!resultsBox) {
         // Create the element only if it doesn't already exist
@@ -155,7 +154,7 @@ function displayResultsBox() {
         resultsBox.className = 'results-box-container';
         
         // Append it to the container or body
-        // const container = document.querySelector('.results-box-container');
+        const container = document.querySelector('.container'); // Define your container element here
         if (container) {
             container.appendChild(resultsBox);
         } else {
