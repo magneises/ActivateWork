@@ -50,6 +50,7 @@ const mortgageTypeInterestOnlyAmount = () => {
     return monthlyRepayment.toFixed(2); // Format to 2 decimal places
 };
 
+
 // Repayment Decision Function
 function repaymentAmountFunction() {
     const mortgageType = repaymentInput.checked ? 'repayment' : 'interest-only';
@@ -148,31 +149,7 @@ function yourResultsTextUpdate() {
     } else {
         console.error('Results text or headline elements not found.');
     }
-
-    yourResultsTextHeadline.style.textAlign = "left";
-    yourResultsText.style.textAlign = "left";
 }
-
-
-
-// function displayResultsBox() {
-//     const resultsBox = document.querySelector('.results-box-container');
-//     if (resultsBox) {
-
-//         // Styles
-//         resultsBox.style.height = "10em";
-//         resultsBox.style.width = "15rem";
-//         resultsBox.style.backgroundColor = "yellow";
-//         resultsBox.classList.add('visible');
-//         resultsBox.style.display = "flex";
-//         resultsBox.style.justifyContent = "center";
-//         resultsBox.style.alignItems = "center";
-
-//     } else {
-//         console.error('Results box not found.');
-//     }
-// }
-
 
 function displayResultsBox(content) {
     // Check if the results box already exists

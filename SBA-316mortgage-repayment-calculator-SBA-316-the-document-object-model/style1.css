@@ -261,6 +261,7 @@ input, label {
   cursor: pointer;
 }
 
+
 #btn-calculate-payments:hover {
     display: flex;
     justify-content: center;
@@ -275,14 +276,6 @@ input, label {
     margin-top: 1rem;
     cursor: pointer;
   }
-
-/* .calc-image {
-  max-width: 100%;
-  height: auto;
-  margin: 0 auto;
-} */
-
-
 
 .attribution {
   text-align: center;
@@ -331,6 +324,17 @@ input, label {
   .container {
     gap: 1rem;
   }
+
+  .mortgage-results-section {
+    background-color: hsl(202, 55%, 16%);
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack items vertically */
+    }
 }
 
 /* Small screens (phones) */
@@ -355,4 +359,19 @@ input, label {
     width: 100%;
     padding: 0.8rem 1rem;
   }
+
+.mortgage-results-section {
+    background-color: hsl(202, 55%, 16%);
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: .5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack items vertically */
+    }
 }
+
+
+
+
