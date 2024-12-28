@@ -53,66 +53,91 @@ const mortgageTypeInterestOnlyAmount = () => {
 // Repayment Decision Function
 function repaymentAmountFunction() {
     const mortgageType = repaymentInput.checked ? 'repayment' : 'interest-only';
-    const resultsTextElement = document.querySelector('.your-monthly-repayment-amount-text');
-
-    // Styles for Results Text Element
-    resultsTextElement.style.color = "purple";
-    resultsTextElement.style.textTransform = "uppercase";
-    resultsTextElement.style.padding = "1rem 1rem";
-
-
 
     if (mortgageType === 'repayment') {
         const repaymentAmount = mortgageTypeRepaymentAmount();
         console.log(`Repayment Amount: $${repaymentAmount}`);
         removeCalcImg();
         yourResultsTextUpdate();
-        displayResultsBox();
 
-        if (resultsTextElement) {
-            resultsTextElement.textContent = `Your monthly repayment is: $${repaymentAmount}`;
-        }
+        // Pass the content to displayResultsBox
+        displayResultsBox(`YOUR MONTHLY REPAYMENT IS: $${repaymentAmount}`);
         return repaymentAmount;
     } else {
         const repaymentAmount = mortgageTypeInterestOnlyAmount();
         console.log(`Interest-only Repayment Amount: $${repaymentAmount}`);
         removeCalcImg();
         yourResultsTextUpdate();
-        displayResultsBox();
 
-        if (resultsTextElement) {
-            resultsTextElement.textContent = `Your interest-only monthly repayment is: $${repaymentAmount}`;
-        }
+        // Pass the content to displayResultsBox
+        displayResultsBox(`YOUR INTEREST-ONLY MONTHLY REPAYMENT IS: $${repaymentAmount}`);
         return repaymentAmount;
     }
 }
 
 
-// Clear Inputs Function
+
 function clearAllFunction() {
+    // Clear input values
     mortgageAmountInput.value = '';
     mortgageTermInput.value = '';
     interestRateInput.value = '';
     repaymentInput.checked = false;
     interestOnlyInput.checked = false;
 
-    // console.log('All inputs cleared!');
+    // Restore the default image in its original position
+    addCalcImg();
+
+    // Reset the text content
+    const yourResultsText = document.querySelector('.mortgage-results-inner-section-paragraph-text');
+    const yourResultsTextHeadline = document.querySelector('.mortgage-results-inner-section-header-text');
+    if (yourResultsText && yourResultsTextHeadline) {
+        yourResultsText.textContent = 'Complete the form and click "calculate repayments" to see what your monthly repayments would be..';
+        yourResultsTextHeadline.textContent = 'Calculate your mortgage';
+    }
+
+    // Remove the results box if it exists
+    const resultsBox = document.querySelector('.results-box-container');
+    if (resultsBox) {
+        resultsBox.remove();
+    }
+
+    console.log('All inputs cleared, and results section reset!');
 }
+
 
 // Remove Calculator Image Function
 function removeCalcImg() {
     if (calcImg) {
         calcImg.remove();
-        // console.log('Calculator image removed!');
+        console.log('Calculator image removed!');
     }
 }
 
-// function addCalcImg() {
-//     if (calcImg !== '') {
-//         calcImg.add();
-//         console.log('Calculator image added!');
-//     }
-// }
+function addCalcImg() {
+    const resultsSection = document.querySelector('.mortgage-results-section');
+    if (calcImg && resultsSection) {
+        // Ensure the container for the image exists
+        const calcImgContainer = document.createElement('div');
+        calcImgContainer.className = 'calc-img-container'; // Add a class for styling if needed
+
+        // Append the image to the container
+        calcImgContainer.appendChild(calcImg);
+
+        // Prepend the container above the text
+        resultsSection.insertBefore(calcImgContainer, resultsSection.firstChild);
+
+        // Ensure the image is displayed as a block element above the text
+        calcImg.style.display = 'block';  // Ensure block display to push the text below
+        calcImg.style.margin = '0 auto';  // Center it horizontally
+        calcImg.style.width = '';        // Reset any width adjustments
+        calcImg.style.height = '';       // Reset any height adjustments
+
+        console.log('Calculator image added in the original position!');
+    }
+}
+
+
 
 function yourResultsTextUpdate() {
     const yourResultsText = document.querySelector('.mortgage-results-inner-section-paragraph-text');
@@ -123,7 +148,12 @@ function yourResultsTextUpdate() {
     } else {
         console.error('Results text or headline elements not found.');
     }
+
+    yourResultsTextHeadline.style.textAlign = "left";
+    yourResultsText.style.textAlign = "left";
 }
+
+
 
 // function displayResultsBox() {
 //     const resultsBox = document.querySelector('.results-box-container');
@@ -144,7 +174,7 @@ function yourResultsTextUpdate() {
 // }
 
 
-function displayResultsBox() {
+function displayResultsBox(content) {
     // Check if the results box already exists
     let resultsBox = document.querySelector('.results-box-container');
     
@@ -153,25 +183,38 @@ function displayResultsBox() {
         resultsBox = document.createElement('div');
         resultsBox.className = 'results-box-container';
         
-        // Append it to the container or body
-        const container = document.querySelector('.container'); // Define your container element here
-        if (container) {
-            container.appendChild(resultsBox);
+        // Append it to the mortgage-results-section
+        const resultsSection = document.querySelector('.mortgage-results-section'); // Adjust as needed
+        if (resultsSection) {
+            resultsSection.appendChild(resultsBox);
         } else {
-            console.error('Specific container not found. Appending to body.');
+            console.error('Mortgage results section not found. Appending to body.');
             document.body.appendChild(resultsBox);
         }
     }
 
     // Apply styles
-    resultsBox.style.height = "10em";
-    resultsBox.style.width = "15rem";
-    resultsBox.style.backgroundColor = "yellow";
-    resultsBox.classList.add('visible');
+    resultsBox.style.height = "15em";
+    resultsBox.style.width = "25rem";
+    resultsBox.style.backgroundColor = "#0e2431";
+    resultsBox.style.color = "white";
     resultsBox.style.display = "flex";
     resultsBox.style.justifyContent = "center";
     resultsBox.style.alignItems = "center";
+    resultsBox.style.textAlign = "center";
+    resultsBox.style.borderRadius = "8px";
+    resultsBox.style.padding = "1rem";
+    resultsBox.style.borderTop = ".2rem solid #a5b44f";
+
+    // Center the box horizontally
+    resultsBox.style.margin = "0 auto";
+
+    // Update the content of the box
+    resultsBox.textContent = content;
+    resultsBox.classList.add('visible');
 }
+
+
 
 
 

@@ -319,27 +319,27 @@ label {
 
 /* Medium screens (tablets) */
 @media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 15px;
+    .container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+    body {
+      padding: 15px;
+    }
   }
-
-  body {
-    padding: 15px;
+  
+  /* Small screens (phones) */
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+      font-size: 14px;
+    }
+  
+    .container {
+      gap: 10px;
+    }
   }
-}
-
-/* Small screens (phones) */
-@media (max-width: 480px) {
-  body {
-    padding: 10px;
-    font-size: 14px;
-  }
-
-  .container {
-    gap: 10px;
-  }
-}
 
 
 

@@ -69,6 +69,30 @@ body {
   min-width: 280px; /* Ensure content isn't squeezed too much */
 }
 
+.mortgage-results-section {
+    background-color: hsl(202, 55%, 16%);
+    color: white;
+    text-align: center;
+    border-bottom-left-radius: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Stack items vertically */
+}
+
+.calc-img-container {
+    display: block;  /* Ensure it behaves like a block element */
+    margin-bottom: 1rem; /* Space between image and text */
+}
+
+.calc-image {
+    max-width: 100%;
+    height: auto;
+    display: block;  /* Ensures image is centered */
+    margin: 0 auto;  /* Center the image */
+}
+
+
 .mortgage-title-header {
   display: flex;
   justify-content: space-between;
@@ -218,12 +242,7 @@ input, label {
   
   .mortgage-type div:checked {
     margin-bottom: 15px;
-    background-color: pink;
   }
-
-
-
-
 
 
 
@@ -242,17 +261,28 @@ input, label {
   cursor: pointer;
 }
 
-.mortgage-results-section {
-  background-color: hsl(202, 55%, 16%);
-  color: white;
-  text-align: center;
-}
+#btn-calculate-payments:hover {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebee97;
+    color: #133040;
+    border: none;
+    border-radius: 15rem;
+    padding: 0.8rem 2rem;
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
 
-.calc-image {
+/* .calc-image {
   max-width: 100%;
   height: auto;
   margin: 0 auto;
-}
+} */
+
+
 
 .attribution {
   text-align: center;
