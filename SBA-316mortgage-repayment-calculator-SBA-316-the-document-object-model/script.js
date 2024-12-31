@@ -27,8 +27,42 @@ interestRateInput.addEventListener('input', () => {
 clearAllClick.addEventListener('click', clearAllFunction);
 
 calculatePaymentsClick.addEventListener('click', () => {
+    // Call errorMessages first to validate inputs
+    if (!validateInputs()) {
+        console.log("Validation failed.");
+        return; // Halt further execution if validation fails
+    }
+
     console.log(repaymentAmountFunction());
 });
+
+
+function validateInputs() {
+    const mortgageAmount = parseFloat(mortgageAmountInput.value);
+    const mortgageTerm = parseInt(mortgageTermInput.value, 10);
+    const interestRate = parseFloat(interestRateInput.value);
+
+    // Validate mortgage amount
+    if (isNaN(mortgageAmount) || mortgageAmount <= 0) {
+        alert("Invalid mortgage amount. Please enter a positive number.");
+        return false;
+    }
+
+    // Validate mortgage term
+    if (isNaN(mortgageTerm) || mortgageTerm <= 0) {
+        alert("Invalid mortgage term. Please enter a positive number.");
+        return false;
+    }
+
+    // Validate interest rate
+    if (isNaN(interestRate) || interestRate <= 0) {
+        alert("Invalid interest rate. Please enter a positive number.");
+        return false;
+    }
+    
+    return true; // Validation passed
+}
+
 
 // Repayment Mortgage Type Calculation
 const mortgageTypeRepaymentAmount = () => {
