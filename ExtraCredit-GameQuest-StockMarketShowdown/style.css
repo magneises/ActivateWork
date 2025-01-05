@@ -12,5 +12,101 @@ body {
     justify-content: center;
     height: 100vh;
     overflow: hidden;
-    margin: 0;
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
 }
+
+.container-hero {
+    background-color: #F0F0F0;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.container-stock-ticker {
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    height: 5%;
+    width: 100%;
+    align-items: center;
+    padding-left: 1rem;
+    padding-right: 2rem;
+}
+
+.container-game-name h3 {
+    color: white;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-game {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+}
+
+.container-available-stocks {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    overflow: none;
+    align-items: center;
+    padding-top: 5rem;
+    background-color: yellow;
+}
+
+.container-available-stocks-list {
+    display: flex;
+    flex-direction: column;
+    height: 70%;
+    width: 75%;
+    overflow: none;
+    align-items: center;
+    background-color: blue;
+}
+
+.container-portfolio {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 50%;
+    overflow: none;
+    align-items: center;
+    padding-top: 5rem;
+    background-color: orange;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+
+/* Medium screens (tablets) */
+@media (max-width: 768px) {
+    .container-hero {
+      flex: 1 1 100%; /* Full width for smaller screens */
+    }
+  
+  }
+  
+  /* Small screens (phones) */
+  @media (max-width: 480px) {
+    body {
+      font-size: 14px;
+      padding: 1rem;
+    }
+  
+  }
