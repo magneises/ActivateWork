@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
 
 * {
     box-sizing: border-box;
-}
+}   
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Patrick Hand', 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,6 +16,8 @@ body {
     margin: 0px;
     padding: 0px;
     font-size: 16px;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .container-hero {
@@ -62,13 +65,59 @@ body {
 
 .container-available-stocks-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 70%;
     width: 75%;
     overflow: none;
-    align-items: center;
-    background-color: blue;
+    background-color: white;
+
 }
+
+
+.table-stock-list {
+    border-collapse: separate;
+    border-spacing: 0 .5rem;
+    text-align: center;
+    width: 75%;
+}
+
+.table-stock-list td {
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.table-border-right {
+    border-right: 1px solid black;
+}
+
+.table-border-left {
+    border-left: 1px solid black;
+}
+
+.container-buy-sell {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 25%;
+    overflow: none;
+    /* align-items: center; */
+    background-color: pink;
+}
+
+
+.table-stock-list th {
+    content: "";
+
+
+
+}
+
+
+
+
+
+
+
 
 .container-portfolio {
     display: flex;
@@ -80,6 +129,12 @@ body {
     padding-top: 5rem;
     background-color: orange;
 }
+
+
+
+
+
+
 
 
 
