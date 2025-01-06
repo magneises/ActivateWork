@@ -8,5 +8,6 @@ const submitOrderBtn = document.querySelector('.submit-order-btn');
 document.querySelector('.submit-order-btn').addEventListener('click', function(){ alert('Order Placed'); });
 
 
-
-
+if (isNaN(priceOfStock)) {
+    console.log("update price");
+}
