@@ -131,6 +131,7 @@ body {
 .buy-btn:hover {
     border: 1px solid green;
     background-color: green;
+    cursor: pointer;
 }
 
 .sell-btn:hover {
@@ -138,6 +139,7 @@ body {
     border-top: 1px solid red;
     border-right: 1px solid red;
     border-bottom: 1px solid red;
+    cursor: pointer;
 }
 
 
@@ -163,6 +165,7 @@ body {
     justify-content: center;
     align-items: center;
     border-radius: .31rem;
+    cursor: pointer;
 }
 
 
