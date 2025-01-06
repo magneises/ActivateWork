@@ -70,7 +70,6 @@ body {
     width: 75%;
     overflow: none;
     background-color: white;
-
 }
 
 .table-stock-list {
@@ -96,18 +95,18 @@ body {
 .container-buy-sell {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     height: 100%;
     width: 35%;
     overflow: none;
-    /* align-items: center; */
-    background-color: pink;
+    /* background-color: pink; */
 }
 
 .table-buy-sell {
     border-collapse: separate;
     border-spacing: 0 .5rem;
     text-align: center;
-    width: 75%;
+    width: 95%;
     margin-left: 1rem;
 }
 
@@ -143,12 +142,9 @@ body {
 
 
 
+/* Portfolio Section */
 
-
-
-
-
-.container-portfolio {
+.container-portfolio-section {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -157,8 +153,49 @@ body {
     align-items: center;
     padding-top: 5rem;
     background-color: orange;
-    text-wrap: wrap;
 }
+
+.container-game-stats-section {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    height: 70%;
+    width: 75%;
+    overflow: none;
+    background-color: white;
+}
+
+
+
+.players-portfolio {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: pink;
+}
+
+.player1-portfolio-value,
+.player1-computer-separator,
+.computer-portfolio-value {
+    display: inline-block;
+}
+
+.players-allocation-section {
+    background-color: lightblue;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.players-allocation {
+    background-color: grey;
+    height: 100%;
+    width: 100%;
+}
+
 
 
 
