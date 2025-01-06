@@ -141,6 +141,31 @@ body {
 }
 
 
+.submit-order-btn {
+    margin: auto;
+    height: 3rem;
+    width: 7rem;
+    background-color: grey;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .31rem;
+}
+
+.submit-order-btn:hover {
+    margin: auto;
+    height: 3rem;
+    width: 7rem;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: .31rem;
+}
+
+
 
 /* Portfolio Section */
 
@@ -195,6 +220,8 @@ body {
     height: 100%;
     width: 100%;
 }
+
+
 
 
 
