@@ -73,12 +73,11 @@ body {
 
 }
 
-
 .table-stock-list {
     border-collapse: separate;
     border-spacing: 0 .5rem;
     text-align: center;
-    width: 75%;
+    width: 65%;
 }
 
 .table-stock-list td {
@@ -98,18 +97,48 @@ body {
     display: flex;
     flex-direction: row;
     height: 100%;
-    width: 25%;
+    width: 35%;
     overflow: none;
     /* align-items: center; */
     background-color: pink;
 }
 
+.table-buy-sell {
+    border-collapse: separate;
+    border-spacing: 0 .5rem;
+    text-align: center;
+    width: 75%;
+    margin-left: 1rem;
+}
 
-.table-stock-list th {
-    content: "";
+.buy-table-border-left {
+    border: 1px solid darkgreen;
+    border-top-left-radius: .31rem;
+    border-bottom-left-radius: .31rem;
+    background-color: darkgreen;
+    color: white;
+}
 
+.sell-table-border-right {
+    border-top: 1px solid darkred;
+    border-right: 1px solid darkred;
+    border-bottom: 1px solid darkred;
+    border-top-right-radius: .31rem;
+    border-bottom-right-radius: .31rem;
+    background-color: darkred;
+    color: white;
+}
 
+.buy-btn:hover {
+    border: 1px solid green;
+    background-color: green;
+}
 
+.sell-btn:hover {
+    background-color: red;
+    border-top: 1px solid red;
+    border-right: 1px solid red;
+    border-bottom: 1px solid red;
 }
 
 
@@ -128,6 +157,7 @@ body {
     align-items: center;
     padding-top: 5rem;
     background-color: orange;
+    text-wrap: wrap;
 }
 
 
