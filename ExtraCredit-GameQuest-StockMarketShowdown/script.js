@@ -2,7 +2,11 @@
 const priceOfStock = document.querySelectorAll('.price-of-stock');
 const submitOrderBtn = document.querySelector('.submit-order-btn');
 const startGameBtn = document.querySelector('.start-game-btn');
-const growthOrLossCells = document.querySelectorAll('.growth-or-Loss'); // Correct selector for growth/loss cells
+const growthOrLossCells = document.querySelectorAll('.growth-or-Loss');
+// Buy Buttons
+const buyBtns = document.querySelectorAll('.buy-btn');
+// Sell Buttons
+const sellBtns = document.querySelectorAll('.sell-btn');
 
 // Initialize an array to store previous prices for each stock
 let previousPrices = Array(priceOfStock.length).fill(0);
@@ -14,7 +18,43 @@ submitOrderBtn.addEventListener('click', () => {
 
 startGameBtn.addEventListener('click', startGame);
 
-// functions
+buyBtns.forEach(buyBtn => {
+    buyBtn.addEventListener('click', () => {
+        // Dynamically create a new input field for buy
+        const buyBtnInput = document.createElement('input');
+        buyBtnInput.className = 'buyBtnInputClass';
+
+        // Replace the button with the newly created input
+        const parent = buyBtn.parentNode;
+        parent.replaceChild(buyBtnInput, buyBtn);
+
+        // Focus on the input field after replacement
+        buyBtnInput.focus();
+    });
+});
+
+sellBtns.forEach(sellBtn => {
+    sellBtn.addEventListener('click', () => {
+        // Dynamically create a new input field for sell
+        const sellBtnInput = document.createElement('input');
+        sellBtnInput.className = 'sellBtnInputClass';
+
+        // Replace the button with the newly created input
+        const parent = sellBtn.parentNode;
+        parent.replaceChild(sellBtnInput, sellBtn);
+
+        // Focus on the input field after replacement
+        sellBtnInput.focus();
+    });
+});
+
+
+
+
+
+
+
+// Functions
 function startGame() {
     priceOfStock.forEach((cell, index) => {
         // Generate a random price
@@ -27,7 +67,17 @@ function startGame() {
         const growthOrLossText = calculateGrowthOrLoss(currentPrice, previousPrice);
 
         // Update the growth/loss cell
-        growthOrLossCells[index].textContent = growthOrLossText;
+        const growthOrLossCell = growthOrLossCells[index];
+        growthOrLossCell.textContent = growthOrLossText;
+
+        // Update the color based on growth or loss
+        if (currentPrice > previousPrice) {
+            growthOrLossCell.style.color = "green";
+        } else if (currentPrice < previousPrice) {
+            growthOrLossCell.style.color = "red";
+        } else {
+            growthOrLossCell.style.color = "black"; // No change
+        }
 
         // Update the previous price for the next round
         previousPrices[index] = currentPrice;
@@ -37,20 +87,27 @@ function startGame() {
 }
 
 function randomPrice() {
-    const price = Math.floor(Math.random() * 100);
+    const price = Math.random() * 100;
     return `$${price.toFixed(2)}`;
 }
 
 function calculateGrowthOrLoss(currentPrice, previousPrice) {
+    if (previousPrice === 0) {
+        return "N/A"; // Handle the initial case where no previous price exists
+    }
+
     const priceDifference = currentPrice - previousPrice;
     const growthChange = ((priceDifference / previousPrice) * 100).toFixed(2);
 
     if (currentPrice > previousPrice) {
-        return `${growthChange}%`;
+        return `+${growthChange}%`;
     } else if (currentPrice < previousPrice) {
         return `${growthChange}%`;
     } else {
         return "No Change";
     }
 }
+
+
+
 
