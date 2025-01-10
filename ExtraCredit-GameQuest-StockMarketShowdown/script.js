@@ -42,11 +42,15 @@ function randomPrice() {
 }
 
 function calculateGrowthOrLoss(currentPrice, previousPrice) {
+    const priceDifference = currentPrice - previousPrice;
+    const growthChange = ((priceDifference / previousPrice) * 100).toFixed(2);
+
     if (currentPrice > previousPrice) {
-        return "Growth";
+        return `${growthChange}%`;
     } else if (currentPrice < previousPrice) {
-        return "Loss";
+        return `${growthChange}%`;
     } else {
         return "No Change";
     }
 }
+
