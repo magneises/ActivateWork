@@ -252,6 +252,7 @@ body {
 
 .buyBtnInputClass {
     background-color: orange;
+    width: auto;
 }
 
 
