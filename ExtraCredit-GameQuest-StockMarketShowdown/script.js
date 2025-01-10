@@ -1,13 +1,52 @@
-
 /* variable declarations */
-const priceOfStock = document.querySelector('.price-of-stock');
+const priceOfStock = document.querySelectorAll('.price-of-stock');
 const submitOrderBtn = document.querySelector('.submit-order-btn');
+const startGameBtn = document.querySelector('.start-game-btn');
+const growthOrLossCells = document.querySelectorAll('.growth-or-Loss'); // Correct selector for growth/loss cells
 
+// Initialize an array to store previous prices for each stock
+let previousPrices = Array(priceOfStock.length).fill(0);
 
-/* event listeners */ 
-document.querySelector('.submit-order-btn').addEventListener('click', function(){ alert('Order Placed'); });
+/* event listeners */
+submitOrderBtn.addEventListener('click', () => {
+    alert('Order Placed!');
+});
 
+startGameBtn.addEventListener('click', startGame);
 
-if (isNaN(priceOfStock)) {
-    console.log("update price");
+// functions
+function startGame() {
+    priceOfStock.forEach((cell, index) => {
+        // Generate a random price
+        const price = randomPrice();
+        const currentPrice = parseFloat(price.replace('$', '')); // Convert to number
+        cell.textContent = price; // Update the price in the table
+
+        // Compare with the previous price
+        const previousPrice = previousPrices[index];
+        const growthOrLossText = calculateGrowthOrLoss(currentPrice, previousPrice);
+
+        // Update the growth/loss cell
+        growthOrLossCells[index].textContent = growthOrLossText;
+
+        // Update the previous price for the next round
+        previousPrices[index] = currentPrice;
+    });
+
+    console.log('Game Started!');
+}
+
+function randomPrice() {
+    const price = Math.floor(Math.random() * 100);
+    return `$${price.toFixed(2)}`;
+}
+
+function calculateGrowthOrLoss(currentPrice, previousPrice) {
+    if (currentPrice > previousPrice) {
+        return "Growth";
+    } else if (currentPrice < previousPrice) {
+        return "Loss";
+    } else {
+        return "No Change";
+    }
 }
