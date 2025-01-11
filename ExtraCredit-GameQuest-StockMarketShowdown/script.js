@@ -25,6 +25,8 @@ submitOrderBtn.addEventListener('click', submitOrder);
 startGameBtn.addEventListener('click', startGame);
 
 
+
+
 buyBtns.forEach(buyBtn => {
     buyBtn.addEventListener('click', () => {
         // Dynamically create a new input field for buy
@@ -39,6 +41,18 @@ buyBtns.forEach(buyBtn => {
 
         // Focus on the input field after replacement
         buyBtnInput.focus();
+
+        // Add an event listener to reset back to the button on 'blur'
+        buyBtnInput.addEventListener('blur', () => {
+            parent.replaceChild(buyBtn, buyBtnInput);
+        });
+
+        // Add an event listener to reset back to the button on 'Enter' key
+        buyBtnInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                parent.replaceChild(buyBtn, buyBtnInput);
+            }
+        });
     });
 });
 
@@ -55,8 +69,21 @@ sellBtns.forEach(sellBtn => {
 
         // Focus on the input field after replacement
         sellBtnInput.focus();
+
+        // Add an event listener to reset back to the button on 'blur'
+        sellBtnInput.addEventListener('blur', () => {
+            parent.replaceChild(sellBtn, sellBtnInput);
+        });
+
+        // Add an event listener to reset back to the button on 'Enter' key
+        sellBtnInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                parent.replaceChild(sellBtn, sellBtnInput);
+            }
+        });
     });
 });
+
 
 
 
