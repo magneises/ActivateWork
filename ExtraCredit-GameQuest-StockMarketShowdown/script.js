@@ -16,9 +16,9 @@ let previousPrices = Array(priceOfStock.length).fill(0);
 
 
 /* event listeners */
-// submitOrderBtn.addEventListener('click', () => {
-//     alert('Order Placed!');
-// });
+submitOrderBtn.addEventListener('click', () => {
+    alert('Order Placed!');
+});
 
 submitOrderBtn.addEventListener('click', submitOrder);
 
@@ -120,8 +120,6 @@ function startGame() {
 
         // Update the previous price for the next round
         previousPrices[index] = currentPrice;
-
-
     });
     console.log('Game Started!');
 }
