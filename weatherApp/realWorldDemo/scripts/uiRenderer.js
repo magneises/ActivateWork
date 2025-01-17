@@ -37,6 +37,7 @@ export function displayWeather(weatherData) {
         <p>Visibility: ${visibility !== 'N/A' ? (visibility / 1000).toFixed(2) + ' km ' : 'N/A'}</p>
         <p>Sunrise: ${sunriseLocalString}</p>
         <p>Sunset: ${sunsetLocalString}</p>
+        <button id="save-favorite">Save to Favorites</button>
         `;
     } else {
         console.error('Weather container element is missing');
