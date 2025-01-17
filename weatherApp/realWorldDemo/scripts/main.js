@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('weather-form');
     const cityInput = document.getElementById('city-input');
 
-    form.addEventListener('sumbit', (event) => {
+    form.addEventListener('submit', (event) => {
         event.preventDefault();
         const city = cityInput.value.trim();
 
@@ -16,11 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => {
                     console.error('Error fetching weather data:', error);
-                    displayWeather({ main: { temp: 'N/A'}, weather: [{ description: 'Unable to fetch data'}], localSun})
+                    displayWeather({
+                        main: { temp: 'N/A' },
+                        weather: [{ description: 'Unable to fetch data' }],
+                        sys: { sunrise: null, sunset: null },
+                        timezone: 0,
+                    });
                 });
         } else {
             console.error('City input is empty');
-            displayWeather({ main: { temp: 'N/A' }, weather: [{ description: 'City name is required'}], localSunrise})
+            displayWeather({
+                main: { temp: 'N/A' },
+                weather: [{ description: 'City name is required' }],
+                sys: { sunrise: null, sunset: null },
+                timezone: 0,
+            });
         }
     });
 });
