@@ -8,10 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         const city = cityInput.value.trim();
-
+        console.log('City Entered:', city);
+    
         if (city) {
             getWeather(city)
                 .then(data => {
+                    console.log('Weather Data Received:', data);
                     displayWeather(data);
                 })
                 .catch(error => {
@@ -25,12 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
         } else {
             console.error('City input is empty');
-            displayWeather({
-                main: { temp: 'N/A' },
-                weather: [{ description: 'City name is required' }],
-                sys: { sunrise: null, sunset: null },
-                timezone: 0,
-            });
         }
-    });
+    });    
 });

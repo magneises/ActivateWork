@@ -7,6 +7,7 @@ export function displayWeather(weatherData) {
     const windSpeed = weatherData.wind?.speed || `N/A`;
     const windDirection = weatherData.wind?.deg || `N/A`;
     const visibility = weatherData.visibility || `N/A`;
+    console.log('Weather Data: ', weatherData)
 
     const temperatureC = temperatureK !== `N/A` ? (temperatureK - 273.15).toFixed(2) : `N/A`;
     const feelsLikeC = temperatureK !== `N/A` ? (feelslikeK - 273.15).toFixed(2) : `N/A`;
