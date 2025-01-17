@@ -29,10 +29,21 @@ const sunsetLocalString = sunsetLocal !== `N/A` ? sunsetLocal.toLocaleTimeString
 
 const weatherContainer = document.getElementById(`weather-container`);
 
+
+
 if (weatherContainer) {
     weatherContainer.innerHTML = `
     <p>Temperatur: ${temperatureC}°C</p>
     <p>Feels Like: ${feelsLikeC}°C</p>
+    <p>Description: ${description}</p>
+    <p>Humidity: ${humidity}</p>
+    <p>Pressure: ${pressure} hPa</p>
+    <p>Wind Speed: ${windSpeed} m/s<p>
+    <p>Visibility: ${visibility !== 'N/A' ? visibility / 1000 + ' km ' : 'N/A'}</p>
+    <p>Sunrise: ${sunriseLocalString}</p>
+    <p>Sunset: ${sunsetLocalString}</p>
+    `;
 
-    `
+} else {
+    console.error('Weather container element is missing');
 }
