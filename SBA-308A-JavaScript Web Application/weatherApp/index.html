@@ -20,11 +20,24 @@
                 <button type="submit">Get Weather</button>
             </form>
         </section>
+ 
 
         <section id="weather-display">
             <h2>Weather Information</h2>
             <div id="weather-container">
                 <!-- weather details here. -->
+            </div>
+        </section>
+
+        <section id="favorites-display">
+            <h2>Favorites</h2>
+            <button id="view-favorites">View Favorites</button>
+            <button id="hide-favorites">Hide Favorites</button>
+            <button id="reset-favorites">Reset Favorites</button>
+            <div id="favorites-container">
+                <ul id="favorites-list">
+                    <!-- Favorite cities will appear here -->
+                </ul>
             </div>
         </section>
     </main>
@@ -36,9 +49,5 @@
     <!-- Scripts -->
     <script type=module src="./realWorldDemo/scripts/weatherService.js"></script>
     <script type=module src="./realWorldDemo/scripts/main.js"></script>
-
-
-     <script type=module src="scripts/weatherService.js"></script>
-     <script type=module src="scripts/main.js"></script>
 </body>
 </html>
