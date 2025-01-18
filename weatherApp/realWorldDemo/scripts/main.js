@@ -1,11 +1,16 @@
 import { getWeather } from './weatherService.js';
 import { displayWeather } from './uiRenderer.js';
 
+let favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Declare favorites globally
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('weather-form');
     const cityInput = document.getElementById('city-input');
     const viewFavoritesButton = document.getElementById('view-favorites');
+    const hideFavoritesButton = document.getElementById('hide-favorites');
+    const resetFavoritesButton = document.getElementById('reset-favorites');
 
+    // Add event listener for form submission
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         const city = cityInput.value.trim();
@@ -37,11 +42,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Add event listeners for favorites controls
     viewFavoritesButton.addEventListener('click', viewFavorites);
+    hideFavoritesButton.addEventListener('click', hideFavorites);
+    resetFavoritesButton.addEventListener('click', resetFavorites);
 });
 
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
+// Function to save a favorite city
 function saveFavorite(city) {
     fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
@@ -67,10 +74,13 @@ function saveFavorite(city) {
     });
 }
 
+// Function to display favorites
 function viewFavorites() {
     console.log('Favorites array:', favorites);
     const favoritesList = document.getElementById('favorites-list');
+    const favoritesContainer = document.getElementById('favorites-container');
     favoritesList.innerHTML = '';
+    favoritesContainer.style.display = 'block'; // Ensure container is visible
 
     if (favorites.length === 0) {
         favoritesList.innerHTML = '<li>No favorites saved yet.</li>';
@@ -81,4 +91,18 @@ function viewFavorites() {
             favoritesList.appendChild(li);
         });
     }
+}
+
+// Function to hide favorites
+function hideFavorites() {
+    const favoritesContainer = document.getElementById('favorites-container');
+    favoritesContainer.style.display = 'none'; // Hide the container
+}
+
+// Function to reset favorites
+function resetFavorites() {
+    localStorage.removeItem('favorites');
+    favorites = []; 
+    alert('All favorite cities have been reset!');
+    viewFavorites(); // Refresh the favorites list display
 }
