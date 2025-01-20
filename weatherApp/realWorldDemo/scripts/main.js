@@ -2,6 +2,8 @@ import { getWeather } from './weatherService.js';
 import { displayWeather } from './uiRenderer.js';
 
 let favorites = JSON.parse(localStorage.getItem('favorites')) || []; // Declare favorites globally
+let units = ['imperial', 'metric', '']; // Cycle order: Fahrenheit -> Celsius -> Kelvin
+let currentUnitIndex = 0; // Track current unit index
 
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('weather-form');
@@ -9,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewFavoritesButton = document.getElementById('view-favorites');
     const hideFavoritesButton = document.getElementById('hide-favorites');
     const resetFavoritesButton = document.getElementById('reset-favorites');
+    const changeScaleButton = document.getElementById('change-scale-btn'); // Correct button ID
 
     // Add event listener for form submission
     form.addEventListener('submit', (event) => {
@@ -17,9 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('City Entered:', city);
 
         if (city) {
-            getWeather(city)
+            getWeather(city, units[currentUnitIndex])
                 .then(data => {
                     console.log('Weather Data Received:', data);
+                    data.units = units[currentUnitIndex]; // Pass the current unit to display
                     displayWeather(data);
 
                     const saveButton = document.getElementById('save-favorite');
@@ -42,11 +46,40 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Add event listener for unit toggle button
+    changeScaleButton.addEventListener('click', () => {
+        currentUnitIndex = (currentUnitIndex + 1) % units.length; // Cycle to the next unit
+        const unitText = units[currentUnitIndex] === 'imperial'
+            ? 'Switch to Celsius'
+            : units[currentUnitIndex] === 'metric'
+            ? 'Switch to Kelvin'
+            : 'Switch to Fahrenheit';
+        changeScaleButton.textContent = unitText; // Update button text
+        updateWeatherWithCurrentUnit(); // Update weather display with new unit
+    });
+
     // Add event listeners for favorites controls
     viewFavoritesButton.addEventListener('click', viewFavorites);
     hideFavoritesButton.addEventListener('click', hideFavorites);
     resetFavoritesButton.addEventListener('click', resetFavorites);
 });
+
+// Function to update weather with the current unit
+function updateWeatherWithCurrentUnit() {
+    const city = document.getElementById('city-input').value.trim();
+    if (city) {
+        getWeather(city, units[currentUnitIndex])
+            .then(data => {
+                data.units = units[currentUnitIndex]; // Pass the current unit to the display function
+                displayWeather(data);
+            })
+            .catch(error => {
+                console.error('Error updating weather data:', error);
+            });
+    } else {
+        console.warn('No city entered. Please enter a city to update the weather display.');
+    }
+}
 
 // Function to save a favorite city
 function saveFavorite(city) {
@@ -102,11 +135,7 @@ function hideFavorites() {
 // Function to reset favorites
 function resetFavorites() {
     localStorage.removeItem('favorites');
-    favorites = []; 
+    favorites = [];
     alert('All favorite cities have been reset!');
     viewFavorites(); // Refresh the favorites list display
 }
-
-
-
-// Add function to change display from celsius to fahrenheit
