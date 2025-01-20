@@ -12,6 +12,9 @@ body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
     color: #333;
+    background-image: url("realWorldDemo/scripts/assets/images/nasa-Q1p7bh3SHj8-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
 }
 
 /* Header styles */
@@ -83,6 +86,9 @@ button:hover {
     align-items: center;
 } 
 
+.check-weather-txt {
+    color: white;
+}
 
 
 #weather-container {
