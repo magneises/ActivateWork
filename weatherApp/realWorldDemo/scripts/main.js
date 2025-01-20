@@ -29,8 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     const saveButton = document.getElementById('save-favorite');
                     saveButton?.addEventListener('click', () => {
                         console.log('Save to Favorites button clicked!');
-                        saveFavorite(city);
+                            saveFavorite(city);
                     });
+
                 })
                 .catch(error => {
                     console.error('Error fetching weather data:', error);
