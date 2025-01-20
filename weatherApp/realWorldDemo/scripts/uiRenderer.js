@@ -43,3 +43,7 @@ export function displayWeather(weatherData) {
         console.error('Weather container element is missing');
     }
 }
+
+
+
+// Add option for Fahrenheit

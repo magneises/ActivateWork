@@ -106,3 +106,7 @@ function resetFavorites() {
     alert('All favorite cities have been reset!');
     viewFavorites(); // Refresh the favorites list display
 }
+
+
+
+// Add function to change display from celsius to fahrenheit
