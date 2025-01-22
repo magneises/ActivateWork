@@ -89,7 +89,7 @@ router
     else next();
   });
 
-router // added this section
+router // added this section for exercise 1
   .route("/:id/posts")
   .get((req, res, next) => {
     console.log(req.params.id)
