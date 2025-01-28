@@ -1,90 +1,57 @@
-import express from 'express'
-
-import db from './db.js'
-import { ObjectId } from 'mongodb';
+import express from 'express';
 
 const app = express();
+const PORT = 3000;
 
-const port = 8080;
-
+// Middleware for logging
+const logger = (req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+};
+app.use(logger);
 app.use(express.json());
 
-app.get('/', async (req, res) => {
+// Default route
+app.get('/', (req, res) => {
+    res.send('Welcome to the Workout API!');
+});
+
+// GET: Fetch exercises from the external API
+app.get('/api/work', async (req, res) => {
+    const muscleGroup = req.query.muscle || 'biceps'; // Default to 'biceps'
+    const url = `https://work-out-api1.p.rapidapi.com/search?Muscles=${muscleGroup}`;
+    const options = {
+        method: 'GET',
+        headers: {
+            'x-rapidapi-key': '23f1e4dffamsha0d31028b75d3eep1b7ecajsn64f463fa1707', // Replace with your actual API key
+            'x-rapidapi-host': 'work-out-api1.p.rapidapi.com',
+        },
+    };
+
     try {
-        const collection = await db.collection('posts')
-        const results = await collection.find({}).limit(1).toArray()
-        console.log('GET /')
-        res.json(results).status(200)
-    } catch(e) {
-        console.log(e)
-    }
-})
+        console.log(`Fetching data from: ${url}`); // Log the URL for debugging
+        const response = await fetch(url, options);
 
-app.get('/:id', async (req, res) => {
-    try {
-        const collection = await db.collection('posts')
-        let query = { _id: new ObjectId(req.params.id) }
-        const result = await collection.findOne(query)
-
-        if (!result) res.send('404 Not Found').status(404)
-        else res.send(result).status(200)
-    } catch(e) {
-        console.log(e)
-        console.log("Error message:", e.message);
-        console.log("Stack trace:", e.stack); // trying using stack trace
-    }
-})
-
-app.post('/', async (req, res) => {
-    const collection = await db.collection('posts')
-    let newDocument = req.body
-    console.log(newDocument)
-    console.log('POST /')
-    res.send('hello')
-})
-
-app.post('/', async (req, res) => {
-    try {
-        const collection = await db.collection('posts')
-        let newDocument = req.body
-        console.log(newDocument)
-        newDocument.date = new date();
-        console.log('POST /')
-        const result = await collection.insertOne(newDocument)
-        res.send(result).status(200)
-    } catch(e) {
-        console.log(e)
-    }
-})
-
-app.patch('/:id', async (req, res) => {
-    try {
-        const query = { _id: new ObjectId(req.params.id)}
-        const update = {
-            $push: { comments: req.body }
+        if (!response.ok) {
+            throw new Error(`API responded with ${response.status}: ${response.statusText}`);
         }
 
-        const collection = await db.collection('posts')
-        const result = await collection.updateOne(query, update)
-
-        res.json(result).status(200)
-    } catch(e) {
-        console.log(e)
+        const data = await response.json(); // Parse the JSON response
+        console.log('API Response:', data); // Log the API response
+        res.json(data); // Send the data to the client
+    } catch (error) {
+        console.error('Error fetching data from Work Out API:', error.message);
+        res.status(500).json({ error: 'Failed to fetch workout data' });
     }
-})
+});
 
-app.delete('/:id', async (req, res) => {
-    try {
-        const query = { _id: new ObjectId(req.params.id) }
-        const collection = await db.collection('posts')
-        const result = await collection.deleteOne(query)
-        res.json(result).status(200)
-    } catch(e) {
-        console.log('Error Message:' + e.message)
-        console.log('Stack Trace: ' + e.stack)
-    }
-})
+// Error handling middleware
+app.use((error, req, res, next) => {
+    console.error('Unhandled Error:', error.stack);
+    res.status(500).json({ error: error.message || 'Internal Server Error' });
+});
 
-app.listen(port, () => {
-    console.log('Connected to server on port: ' + port)
-})
+// Start the server
+app.listen(PORT, () => {
+    console.log(`Server is running on http://localhost:${PORT}`);
+});

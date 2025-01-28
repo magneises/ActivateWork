@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "env": "^0.0.2",
     "express": "^4.21.2",
     "mongodb": "^6.12.0",
     "prompt-sync": "^4.2.0"
