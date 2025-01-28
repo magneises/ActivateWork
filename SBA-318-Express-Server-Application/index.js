@@ -16,6 +16,7 @@ app.get('/', (req, res) => {
     res.send('Welcome to the Workout API!');
 });
 
+
 // GET: Fetch exercises from the external API using fetch
 app.get('/api/work', async (req, res) => {
     const muscleGroup = req.query.muscle || 'biceps'; // Default to 'biceps'
